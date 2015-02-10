@@ -28,18 +28,19 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_gravity="center_horizontal" >
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
             android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button"
-            android:layout_gravity="center" />
-
-        <com.google
+            android:id="@+id/imageButton"
+            android:src="@drawable/google_sign_in"
+            android:layout_gravity="center"
+            android:contentDescription="@string/login_sign_in_with_google" />
 
     </FrameLayout>
 </LinearLayout>
