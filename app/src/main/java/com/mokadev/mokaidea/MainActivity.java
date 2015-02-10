@@ -29,7 +29,7 @@ public class MainActivity extends ActionBarActivity {
 
         // Repos spinner
         repos = (Spinner) findViewById(R.id.spinner_repo);
-        spinnerAdapter = new RepoSpinnerAdapter(this, android.R.layout.simple_spinner_item);
+        spinnerAdapter = new RepoSpinnerAdapter(this);
         repos.setAdapter(spinnerAdapter);
     }
 
