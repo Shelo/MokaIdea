@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 
 
 public class LoginActivity extends Activity {
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -16,11 +17,12 @@ public class LoginActivity extends Activity {
 		ImageButton button = (ImageButton) findViewById(R.id.login_google);
 
 		button.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(LoginActivity.this, IdeaListActivity.class);
-				startActivity(intent);
-			}
-		});
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 	}
+
 }
