@@ -1,9 +1,7 @@
 package com.mokadev.mokaidea;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -26,8 +24,6 @@ public class IdeaListFragment extends ListFragment {
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
-			Log.d("MOKA.DEBUG", String.valueOf(position));
-
 			// if the view is first asked, it will be null, if so, we should inflate the xml.
 			if(convertView == null)
 				convertView = getActivity().getLayoutInflater().inflate(R.layout.idea_item, null);
