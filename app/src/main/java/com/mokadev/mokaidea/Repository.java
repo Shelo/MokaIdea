@@ -17,6 +17,13 @@ public class Repository extends ArrayList<Idea> {
         this.id = id;
     }
 
+	public Idea findIdeaWithId(int id) {
+		for(Idea idea : this)
+			if(idea.getId() == id)
+				return idea;
+		return null;
+	}
+
     public Type getType() {
         return type;
     }

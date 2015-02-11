@@ -23,7 +23,6 @@ public class RepoManager extends ArrayList<Repository> {
 
     private RepoManager() {
 
-
         // Debug
         //populateDefault();
         populate();
