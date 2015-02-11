@@ -6,7 +6,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="login_title">Welcome!</string>
-    <string name="login_description">This is an intent to create a short yet descriptive, needless to say, description, \'cause, yes, everything needs one. And... yeah, that\'s it.</string>
+    <string name="login_description">This is an intent to create a short yet descriptive, needless to say, description, \'cause, yes, everything needs one. And… yeah, that\'s it.</string>
     <string name="login_sign_in_with_google">Sign In with Google</string>
+    <string name="toast_string">8===========D</string>
 
 </resources>
