@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,14 +16,13 @@ import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity implements AdapterView.OnItemSelectedListener {
-
     public static final int NEW_IDEA = 0;
 
-	RepoSpinnerAdapter spinnerAdapter;
-	IdeaListFragment fragment;
-	ViewPager viewPager;
-	Toolbar toolbar;
-	Spinner repos;
+	private RepoSpinnerAdapter spinnerAdapter;
+	private IdeaListFragment fragment;
+	private ViewPager viewPager;
+	private Toolbar toolbar;
+	private Spinner repos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +45,9 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         // Initialize repo fragment
         if(savedInstanceState == null)
             fragment = new IdeaListFragment();
+
+		if(fragment == null)
+			fragment = new IdeaListFragment();
 
         // Sets list view on creation
         fragment.setIdeaSwipeRefresh(srlayout);
@@ -91,7 +91,6 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

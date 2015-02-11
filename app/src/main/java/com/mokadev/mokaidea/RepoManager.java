@@ -1,8 +1,6 @@
 package com.mokadev.mokaidea;
 
 import android.os.AsyncTask;
-import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,7 +11,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class RepoManager extends ArrayList<Repository> {
     private static RepoManager instance;
