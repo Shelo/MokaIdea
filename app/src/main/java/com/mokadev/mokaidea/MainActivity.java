@@ -20,7 +20,6 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     public static final int NEW_IDEA = 0;
 
 	RepoSpinnerAdapter spinnerAdapter;
-	//IdeaSwipeRefresh srlayout;
 	IdeaListFragment fragment;
 	ViewPager viewPager;
 	Toolbar toolbar;
@@ -55,6 +54,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         viewPager = (ViewPager) findViewById(R.id.main_view_pager);
 		viewPager.setAdapter(new MainViewPagerAdapter(getResources(),
 				getSupportFragmentManager(), fragment, new Fragment()));
+
 		viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 			@Override public void onPageScrolled(int i, float v, int i2) { }
 			@Override public void onPageSelected(int i) { }
