@@ -50,11 +50,6 @@ public class RepoManager extends ArrayList<Repository> {
         this.ideaAdapter = ideaAdapter;
     }
 
-    public void populateDefault() {
-        for (Repository repo : DummyDB.repositories)
-            add(repo);
-    }
-
     public void populate() {
         new RepoAsyncRetrieve().execute("http://104.131.186.70/mokaidea/retrieve_all.php");
     }
