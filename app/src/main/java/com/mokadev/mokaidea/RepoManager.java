@@ -50,7 +50,7 @@ public class RepoManager extends ArrayList<Repository> {
     }
 
     public void populate() {
-        new RepoAsyncRetrieve().execute("http://104.131.186.70/mokaidea/retrieve_all.php");
+        new RepoAsyncRetrieve().execute("http://104.131.186.70/mokaidea/retrieve_repos_and_ideas.php?id_user=1");
     }
 
     public void reload() {
@@ -101,19 +101,21 @@ public class RepoManager extends ArrayList<Repository> {
                 connection.connect();
                 BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 String json = in.readLine();
-                JSONObject jsonObject = new JSONObject(json);
+                JSONArray array = new JSONArray(json);
 
-                Iterator<String> it = jsonObject.keys();
 
-                while (it.hasNext()) {
-                    String key = it.next();
-                    Repository repo = new Repository("Repository " + key, Integer.parseInt(key));
-                    JSONArray array = jsonObject.getJSONArray(key);
+                for (int i = 0; i < array.length(); i++) {
+                    JSONObject jsonObject = array.getJSONObject(i);
 
-                    Log.i("array.length():", String.valueOf(array.length()));
+                    String repoName = jsonObject.getString("name");
+                    int repoID = jsonObject.getInt("id_repository");
 
-                    for (int i = 0; i < array.length(); i++) {
-                        JSONObject jidea = array.getJSONObject(i);
+                    Repository repo = new Repository(repoName, repoID);
+
+                    JSONArray jideas = jsonObject.getJSONArray("ideas");
+
+                    for (int j = 0; j < jideas.length(); j++) {
+                        JSONObject jidea = jideas.getJSONObject(j);
 
                         Idea idea = new Idea.Builder(jidea.getInt("id_idea"))
                                 .title(jidea.getString("title"))
