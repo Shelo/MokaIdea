@@ -53,6 +53,11 @@ public class RepoManager extends ArrayList<Repository> {
         new RepoAsyncRetrieve().execute("http://104.131.186.70/mokaidea/retrieve_all.php");
     }
 
+    public void reload() {
+        if (ideaAdapter != null)
+            ideaAdapter.notifyDataSetChanged();
+    }
+
     public void load(int repoid) {
         for (Repository repo : this)
             if (repo.id == repoid) {
