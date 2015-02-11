@@ -16,6 +16,7 @@
         android:textSize="30sp"
         android:textColor="@color/fragment_idea_title_color"
         android:text="@string/fragment_idea_dummy_idea_title"
+        android:textIsSelectable="true"
         android:id="@+id/title" />
 
     <LinearLayout

@@ -1,7 +1,5 @@
 package com.mokadev.mokaidea;
 
-import java.util.UUID;
-
 public class Idea {
 	private String shortDescription;
 	private int idRepository;
@@ -13,7 +11,7 @@ public class Idea {
 	private int upVotes;
 	private int id;
 
-	Idea(Builder builder) {
+	private Idea(Builder builder) {
 		shortDescription 	= builder.shortDescription;
 		idRepository 		= builder.idRepository;
 		idAuthor 			= builder.idAuthor;
