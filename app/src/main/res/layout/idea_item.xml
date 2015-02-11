@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:baselineAligned="false"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/idea_item_margin_top"
+        android:layout_marginStart="@dimen/idea_item_margin_start"
+        android:layout_marginLeft="@dimen/idea_item_margin_start"
+        android:layout_marginRight="@dimen/idea_item_margin_end"
+        android:layout_marginEnd="@dimen/idea_item_margin_end"
+        android:background="@drawable/idea_item_background"
+        android:padding="@dimen/idea_item_padding"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:baselineAligned="false" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:lines="1"
+                android:textSize="@dimen/idea_item_title_text_size"
+                android:text="@string/dev_idea_item_title"
+                android:id="@+id/idea_item_title" />
+
+            <TextView
+                android:textSize="@dimen/idea_item_desc_text_size"
+                android:layout_width="wrap_content"
+                android:lines="2"
+                android:layout_height="wrap_content"
+                android:text="@string/dev_idea_item_desc"
+                android:id="@+id/idea_item_short_desc" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/idea_item_up_vote" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

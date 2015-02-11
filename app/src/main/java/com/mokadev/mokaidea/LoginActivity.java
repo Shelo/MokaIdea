@@ -1,15 +1,13 @@
 package com.mokadev.mokaidea;
 
 import android.app.Activity;
-import android.media.Image;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 
 public class LoginActivity extends Activity {
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -20,9 +18,9 @@ public class LoginActivity extends Activity {
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(LoginActivity.this, R.string.toast_string, Toast.LENGTH_SHORT).show();
+				Intent intent = new Intent(LoginActivity.this, IdeaListActivity.class);
+				startActivity(intent);
 			}
 		});
 	}
-
 }
