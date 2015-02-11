@@ -3,17 +3,17 @@ package com.mokadev.mokaidea;
 import java.util.ArrayList;
 
 public class Repository extends ArrayList<Idea> {
-    public enum Type {
+	public enum Type {
         PUBLIC,
         PRIVATE
     }
 
-    public String name;
+    private String name;
     public int id;
     Type type;
 
     public Repository(String name, int id) {
-        this.name = name;
+        this.setName(name);
         this.id = id;
     }
 
@@ -24,7 +24,16 @@ public class Repository extends ArrayList<Idea> {
 		return null;
 	}
 
-    public Type getType() {
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public Type getType() {
         return type;
     }
 }

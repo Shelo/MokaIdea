@@ -73,7 +73,7 @@ public class RepoManager extends ArrayList<Repository> {
 
     public void load(String repoName) {
         for (Repository repo : this)
-            if (repo.name.equals(repoName)) {
+            if (repo.getName().equals(repoName)) {
                 loadedRepository = repo;
                 break;
             }

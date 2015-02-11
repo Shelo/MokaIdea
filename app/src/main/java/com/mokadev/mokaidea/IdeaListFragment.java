@@ -1,5 +1,6 @@
 package com.mokadev.mokaidea;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,12 +19,22 @@ public class IdeaListFragment extends ListFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
         adapter = new IdeaAdapter(RepoManager.getInstance().getLoadedRepository());
 		setListAdapter(adapter);
         RepoManager.getInstance().setIdeaAdapter(adapter);
 	}
 
-    public class IdeaAdapter extends ArrayAdapter<Idea> {
+	@Override
+	public void onListItemClick(ListView l, View v, int position, long id) {
+		Idea idea = RepoManager.getInstance().getLoadedRepository().get(position);
+		Intent intent = new Intent(getActivity(), IdeasViewPagerActivity.class);
+		Log.d("MOKA.DEBUG", "idea: " + idea.getTitle());
+		intent.putExtra(IdeaFragment.ID_IDEA, idea.getId());
+		startActivity(intent);
+	}
+
+	public class IdeaAdapter extends ArrayAdapter<Idea> {
         private class ViewHolder {
             TextView title;
             TextView desc;

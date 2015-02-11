@@ -14,19 +14,32 @@
             android:label="@string/title_activity_login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".MainActivity"
             android:label="MainActivity"
             android:launchMode="singleTop" >
         </activity>
+
         <activity
             android:name=".IdeaListActivity"
             android:label="IdeaListActivity" >
         </activity>
+
+        <activity
+            android:name=".IdeasViewPagerActivity"
+            android:label="IdeasViewPagerActivity"
+            android:parentActivityName=".MainActivity">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mokadev.mokaidea.MainActivity" />
+        </activity>
+
         <activity
             android:name=".NewIdeaActivity"
             android:label="@string/title_activity_new_idea"
@@ -37,6 +50,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mokadev.mokaidea.MainActivity" />
         </activity>
+
     </application>
 
 </manifest>

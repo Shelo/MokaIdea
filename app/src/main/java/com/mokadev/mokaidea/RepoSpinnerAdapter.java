@@ -45,7 +45,7 @@ public class RepoSpinnerAdapter extends ArrayAdapter<Repository> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.item.setText(repo.name);
+        holder.item.setText(repo.getName());
 
         return convertView;
     }

@@ -14,6 +14,7 @@
         android:layout_marginEnd="@dimen/idea_item_margin_end"
         android:background="@drawable/idea_item_background"
         android:padding="@dimen/idea_item_padding"
+        android:descendantFocusability="blocksDescendants"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:baselineAligned="false" >

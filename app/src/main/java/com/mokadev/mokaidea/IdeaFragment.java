@@ -14,28 +14,21 @@ public class IdeaFragment extends Fragment {
 
 	private Idea idea;
 
-	private TextView description;
-	private TextView author;
-	private TextView title;
-	private TextView date;
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		int idIdea = (int) getArguments().getSerializable(ID_IDEA);
 		idea = RepoManager.getInstance().getLoadedRepository().findIdeaWithId(idIdea);
-
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_idea, container);
+		View view = inflater.inflate(R.layout.fragment_idea, container, false);
 
-		description = (TextView) view.findViewById(R.id.title);
-		author		= (TextView) view.findViewById(R.id.author);
-		title		= (TextView) view.findViewById(R.id.title);
-		date		= (TextView) view.findViewById(R.id.date);
+		TextView description 	= (TextView) view.findViewById(R.id.description);
+		TextView author 		= (TextView) view.findViewById(R.id.author);
+		TextView title 			= (TextView) view.findViewById(R.id.title);
+		TextView date 			= (TextView) view.findViewById(R.id.date);
 
 		description.setText(getString(R.string.lorem_ipsum));
 		author.setText(idea.getAuthor());
