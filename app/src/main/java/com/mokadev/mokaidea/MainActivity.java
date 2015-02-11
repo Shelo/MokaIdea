@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -24,6 +26,7 @@ public class MainActivity extends ActionBarActivity
 	RepoSpinnerAdapter spinnerAdapter;
 	SwipeRefreshLayout srlayout;
 	IdeaListFragment fragment;
+	ViewPager viewPager;
 	Toolbar toolbar;
 	Spinner repos;
 
@@ -35,7 +38,7 @@ public class MainActivity extends ActionBarActivity
         // Initialize toolbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Ideas");
+        getSupportActionBar().setTitle("");
 
         // Repos spinner
         repos = (Spinner) findViewById(R.id.spinner_repo);
@@ -47,18 +50,23 @@ public class MainActivity extends ActionBarActivity
         FragmentManager manager = getSupportFragmentManager();
         if(savedInstanceState == null) {
             fragment = new IdeaListFragment();
-            manager
-                    .beginTransaction()
-                    .add(R.id.swipe_container, fragment)
-                    .commit();
+//           manager
+//                    .beginTransaction()
+//                    .add(R.id.swipe_container, fragment)
+//                    .commit();
         }
+
+		// get view pager.
+		viewPager = (ViewPager) findViewById(R.id.main_view_pager);
+		viewPager.setAdapter(new MainViewPagerAdapter(getResources(),
+				getSupportFragmentManager(), fragment, new Fragment()));
 
         srlayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         srlayout.setOnRefreshListener(this);
         srlayout.setColorScheme(android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
+				android.R.color.holo_green_light,
+				android.R.color.holo_orange_light,
+				android.R.color.holo_red_light);
     }
 
     @Override
