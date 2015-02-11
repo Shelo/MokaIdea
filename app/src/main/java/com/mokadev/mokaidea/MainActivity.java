@@ -3,11 +3,8 @@ package com.mokadev.mokaidea;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -48,14 +45,8 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         IdeaSwipeRefresh srlayout = (IdeaSwipeRefresh) findViewById(R.id.swipe_container);
 
         // Initialize repo fragment
-        FragmentManager manager = getSupportFragmentManager();
-        if(savedInstanceState == null) {
+        if(savedInstanceState == null)
             fragment = new IdeaListFragment();
-//           manager
-//                    .beginTransaction()
-//                    .add(R.id.swipe_container, fragment)
-//                    .commit();
-        }
 
         // Sets list view on creation
         fragment.setIdeaSwipeRefresh(srlayout);
