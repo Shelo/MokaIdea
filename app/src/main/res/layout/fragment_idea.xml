@@ -1,0 +1,66 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.mokadev.mokaidea.IdeaFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textColor="@color/fragment_idea_title_color"
+        android:text="@string/fragment_idea_dummy_idea_title"
+        android:id="@+id/title" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="18sp"
+            android:layout_height="wrap_content"
+            android:text="@string/fragment_idea_dummy_author"
+            android:id="@+id/author" />
+
+        <TextView
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/fragment_idea_dummy_date"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:id="@+id/date" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#333333"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_height="1dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lorem_ipsum"
+            android:textSize="16sp"
+            android:textColor="@color/fragment_idea_description_color"
+            android:id="@+id/description" />
+
+    </ScrollView>
+
+</LinearLayout>

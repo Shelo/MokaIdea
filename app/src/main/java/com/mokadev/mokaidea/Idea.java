@@ -6,27 +6,38 @@ public class Idea {
 	private String shortDescription;
 	private int idRepository;
 	private boolean upVoted;
+	private String author;
 	private String title;
 	private int idAuthor;
+	private String date;
 	private int upVotes;
 	private int id;
 
 	Idea(Builder builder) {
-		this.shortDescription 	= builder.shortDescription;
-		this.idRepository 		= builder.idRepository;
-		this.idAuthor 			= builder.idAuthor;
-		this.upVoted 			= builder.upVoted;
-		this.title 				= builder.title;
-		this.id 				= builder.id;
+		shortDescription 	= builder.shortDescription;
+		idRepository 		= builder.idRepository;
+		idAuthor 			= builder.idAuthor;
+		upVotes				= builder.upVotes;
+		upVoted 			= builder.upVoted;
+		author				= builder.author;
+		title 				= builder.title;
+		date				= builder.date;
+		id 					= builder.id;
+	}
+
+	public String getDate() {
+		return date;
 	}
 
 	public static class Builder {
 		private String shortDescription;
 		private int idRepository;
 		private boolean upVoted;
+		private String author;
 		private String title;
 		private int idAuthor;
 		private int upVotes;
+		private String date;
 		private int id;
 
 		public Builder(int id) {
@@ -60,6 +71,16 @@ public class Idea {
 
 		public Builder upVotes(int upVotes) {
 			this.upVotes = upVotes;
+			return this;
+		}
+
+		public Builder author(String author) {
+			this.author = author;
+			return this;
+		}
+
+		public Builder date(String date) {
+			this.date = date;
 			return this;
 		}
 
@@ -106,5 +127,9 @@ public class Idea {
 
 	public int getIdRepository() {
 		return idRepository;
+	}
+
+	public String getAuthor() {
+		return author;
 	}
 }
