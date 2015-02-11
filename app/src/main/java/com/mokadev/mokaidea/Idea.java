@@ -3,16 +3,72 @@ package com.mokadev.mokaidea;
 import java.util.UUID;
 
 public class Idea {
-	private String title;
 	private String shortDescription;
-	private UUID id;
+	private int idRepository;
 	private boolean upVoted;
+	private String title;
+	private int idAuthor;
+	private int upVotes;
+	private int id;
 
-	public Idea() {
-		id = UUID.randomUUID();
+	Idea(Builder builder) {
+		this.shortDescription 	= builder.shortDescription;
+		this.idRepository 		= builder.idRepository;
+		this.idAuthor 			= builder.idAuthor;
+		this.upVoted 			= builder.upVoted;
+		this.title 				= builder.title;
+		this.id 				= builder.id;
 	}
 
-	public UUID getId() {
+	public static class Builder {
+		private String shortDescription;
+		private int idRepository;
+		private boolean upVoted;
+		private String title;
+		private int idAuthor;
+		private int upVotes;
+		private int id;
+
+		public Builder(int id) {
+			this.id = id;
+		}
+
+		public Builder title(String title) {
+			this.title = title;
+			return this;
+		}
+
+		public Builder idRepository(int idRepository) {
+			this.idRepository = idRepository;
+			return this;
+		}
+
+		public Builder idAuthor(int idAuthor) {
+			this.idAuthor = idAuthor;
+			return this;
+		}
+
+		public Builder upVoted(boolean upVoted) {
+			this.upVoted = upVoted;
+			return this;
+		}
+
+		public Builder shortDescription(String shortDescription) {
+			this.shortDescription = shortDescription;
+			return this;
+		}
+
+		public Builder upVotes(int upVotes) {
+			this.upVotes = upVotes;
+			return this;
+		}
+
+		public Idea build() {
+			return new Idea(this);
+		}
+	}
+
+	public int getId() {
 		return id;
 	}
 
@@ -38,5 +94,17 @@ public class Idea {
 
 	public boolean isUpVoted() {
 		return upVoted;
+	}
+
+	public int getUpVotes() {
+		return upVotes;
+	}
+
+	public int getIdAuthor() {
+		return idAuthor;
+	}
+
+	public int getIdRepository() {
+		return idRepository;
 	}
 }
