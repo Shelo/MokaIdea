@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class RepoSpinnerAdapter extends ArrayAdapter<String> {
+public class RepoSpinnerAdapter extends ArrayAdapter<Repository> {
     LayoutInflater inflater;
 
     private class ViewHolder {
@@ -19,6 +19,7 @@ public class RepoSpinnerAdapter extends ArrayAdapter<String> {
 
         // Get inflater
         inflater = LayoutInflater.from(context);
+        RepoManager.getInstance().setRepoAdapter(this);
     }
 
     @Override
@@ -32,7 +33,7 @@ public class RepoSpinnerAdapter extends ArrayAdapter<String> {
     }
 
     private View getCustomView(int position, View convertView, ViewGroup parent) {
-        String repoName = RepoManager.getInstance().get(position);
+        Repository repo = RepoManager.getInstance().get(position);
         ViewHolder holder = null;
 
         if (convertView == null) {
@@ -44,7 +45,7 @@ public class RepoSpinnerAdapter extends ArrayAdapter<String> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.item.setText(repoName);
+        holder.item.setText(repo.name);
 
         return convertView;
     }

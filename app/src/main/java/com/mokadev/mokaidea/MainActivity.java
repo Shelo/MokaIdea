@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
@@ -16,6 +17,7 @@ public class MainActivity extends ActionBarActivity
     Toolbar toolbar;
     Spinner repos;
     RepoSpinnerAdapter spinnerAdapter;
+    Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class MainActivity extends ActionBarActivity
         // Initialize toolbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Ideas");
 
         // Repos spinner
         repos = (Spinner) findViewById(R.id.spinner_repo);
@@ -32,21 +35,24 @@ public class MainActivity extends ActionBarActivity
         repos.setAdapter(spinnerAdapter);
         repos.setOnItemSelectedListener(this);
 
-		FragmentManager manager = getSupportFragmentManager();
-		Fragment fragment = manager.findFragmentById(R.id.fragment_container);
+        // Initialize repo fragment
+        FragmentManager manager = getSupportFragmentManager();
+        fragment = manager.findFragmentById(R.id.fragment_container);
 
-		if(fragment == null) {
-			fragment = new IdeaListFragment();
-			manager
-					.beginTransaction()
-					.add(R.id.fragment_container, fragment)
-					.commit();
-		}
+        if(fragment == null) {
+            fragment = new IdeaListFragment();
+            manager
+                    .beginTransaction()
+                    .add(R.id.fragment_container, fragment)
+                    .commit();
+        }
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(this, RepoManager.getInstance().get(position), Toast.LENGTH_SHORT).show();
+        Log.i("onItemSelected(parent, view, " + position + ", id)", "Selected.");
+        Repository repo = RepoManager.getInstance().get(position);
+        RepoManager.getInstance().load(repo.id);
     }
 
     @Override
