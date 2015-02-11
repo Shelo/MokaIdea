@@ -18,8 +18,10 @@ public class RepoManager extends ArrayList<String> {
         return instance;
     }
 
+
+
     public void loadDefault() {
-        for (int i = 1; i <= 200; i++)
+        for (int i = 1; i <= 20; i++)
             add("Item " + i);
     }
 }
