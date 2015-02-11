@@ -2,8 +2,10 @@ package com.mokadev.mokaidea;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -18,14 +20,15 @@ import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity
-        implements AdapterView.OnItemSelectedListener {
+        implements AdapterView.OnItemSelectedListener, SwipeRefreshLayout.OnRefreshListener {
 
     public static final int NEW_IDEA = 0;
 
     Toolbar toolbar;
     Spinner repos;
     RepoSpinnerAdapter spinnerAdapter;
-    Fragment fragment;
+    IdeaListFragment fragment;
+    SwipeRefreshLayout srlayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,15 +48,22 @@ public class MainActivity extends ActionBarActivity
 
         // Initialize repo fragment
         FragmentManager manager = getSupportFragmentManager();
-        fragment = manager.findFragmentById(R.id.fragment_container);
+        fragment = (IdeaListFragment) manager.findFragmentById(R.id.swipe_container);
 
         if(fragment == null) {
             fragment = new IdeaListFragment();
             manager
                     .beginTransaction()
-                    .add(R.id.fragment_container, fragment)
+                    .add(R.id.swipe_container, fragment)
                     .commit();
         }
+
+        srlayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
+        srlayout.setOnRefreshListener(this);
+        srlayout.setColorScheme(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
     }
 
     @Override
@@ -93,6 +103,15 @@ public class MainActivity extends ActionBarActivity
                 String desc = data.getStringExtra("desc");
             }
         }
+    }
+
+    @Override
+    public void onRefresh() {
+        new Handler().postDelayed(new Runnable() {
+            @Override public void run() {
+                srlayout.setRefreshing(false);
+            }
+        }, 5000);
     }
 
     /*@Override
