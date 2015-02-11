@@ -29,7 +29,6 @@ public class IdeaListFragment extends ListFragment {
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		Idea idea = RepoManager.getInstance().getLoadedRepository().get(position);
 		Intent intent = new Intent(getActivity(), IdeasViewPagerActivity.class);
-		Log.d("MOKA.DEBUG", "idea: " + idea.getTitle());
 		intent.putExtra(IdeaFragment.ID_IDEA, idea.getId());
 		startActivity(intent);
 	}

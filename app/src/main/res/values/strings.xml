@@ -8,7 +8,6 @@
     <string name="login_title">Welcome!</string>
     <string name="login_description">This is an intent to create a short yet descriptive, needless to say, description, \'cause, yes, everything needs one. And… yeah, that\'s it.</string>
     <string name="login_sign_in_with_google">Sign In with Google</string>
-    <string name="toast_string">8===========D</string>
     <string name="dev_idea_item_title">Pichula</string>
     <string name="dev_idea_item_desc">Anal</string>
     <string name="title_activity_new_idea">NewIdeaActivity</string>
@@ -20,7 +19,7 @@
     <string name="fragment_idea_dummy_author">Author</string>
     <string name="fragment_idea_dummy_date">july 2, 1994</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla neque risus, cursus ac sem vitae, lobortis volutpat lacus. Mauris molestie imperdiet odio, eu tempor felis tempus nec. Sed dapibus purus ac est bibendum iaculis. In nec tristique risus. Curabitur varius lectus vitae sem feugiat, eu auctor arcu facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed arcu leo, convallis sit amet ultrices a, viverra eget diam. Aenean maximus risus vel dictum efficitur. Etiam nisi lorem, bibendum et mauris fermentum, consectetur fringilla ipsum. \n\n Duis commodo, lorem at sodales commodo, augue ligula suscipit risus, et venenatis sapien lectus in dolor. Integer id lobortis dui. Vivamus at feugiat quam. Nunc nisl dui, vulputate eget dapibus vitae, sollicitudin et lorem. Pellentesque neque quam, tempor sed sollicitudin non, faucibus accumsan ligula. Aliquam erat volutpat. Maecenas vehicula posuere justo ut imperdiet. Aenean ac blandit dui. Curabitur lacus arcu, eleifend ut tincidunt a, auctor a lacus. Pellentesque hendrerit, massa vitae imperdiet sodales, sem nisi consectetur odio, vel ultrices orci odio vitae lorem. Etiam lacinia urna quam. Suspendisse laoreet convallis sapien, sit amet dictum metus aliquet vitae. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras luctus aliquam arcu vel dapibus.</string>
-    <string name="all_ideas_page_title">Ideas</string>
-    <string name="drafts_page_title">Draft Ideas</string>
+    <string name="all_ideas_page_title">IDEAS</string>
+    <string name="drafts_page_title">DRAFT IDEAS</string>
 
 </resources>
