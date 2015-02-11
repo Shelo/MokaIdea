@@ -15,11 +15,11 @@ import java.util.ArrayList;
 
 public class IdeaListFragment extends ListFragment {
     IdeaAdapter adapter;
+    IdeaSwipeRefresh ideaSwipeRefresh;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
         adapter = new IdeaAdapter(RepoManager.getInstance().getLoadedRepository());
 		setListAdapter(adapter);
         RepoManager.getInstance().setIdeaAdapter(adapter);
@@ -34,7 +34,19 @@ public class IdeaListFragment extends ListFragment {
 		startActivity(intent);
 	}
 
-	public class IdeaAdapter extends ArrayAdapter<Idea> {
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        if (ideaSwipeRefresh != null)
+            ideaSwipeRefresh.setListView(getListView());
+    }
+
+    public void setIdeaSwipeRefresh(IdeaSwipeRefresh ideaSwipeRefresh) {
+        this.ideaSwipeRefresh = ideaSwipeRefresh;
+    }
+
+    public class IdeaAdapter extends ArrayAdapter<Idea> {
         private class ViewHolder {
             TextView title;
             TextView desc;
