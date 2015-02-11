@@ -11,5 +11,9 @@
     <string name="toast_string">8===========D</string>
     <string name="dev_idea_item_title">Pichula</string>
     <string name="dev_idea_item_desc">Anal</string>
+    <string name="title_activity_new_idea">NewIdeaActivity</string>
+    <string name="done">Done</string>
+    <string name="title_hint">Title</string>
+    <string name="description_hint">Description</string>
 
 </resources>

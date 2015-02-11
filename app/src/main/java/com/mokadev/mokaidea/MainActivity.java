@@ -1,11 +1,14 @@
 package com.mokadev.mokaidea;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
@@ -14,6 +17,9 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity
         implements AdapterView.OnItemSelectedListener {
+
+    public static final int NEW_IDEA = 0;
+
     Toolbar toolbar;
     Spinner repos;
     RepoSpinnerAdapter spinnerAdapter;
@@ -61,12 +67,29 @@ public class MainActivity extends ActionBarActivity
     }
 
 
-    /*@Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    }*/
+    }
+
+    public void newEntry(MenuItem item) {
+        Intent intent = new Intent(this, NewIdeaActivity.class);
+        startActivityForResult(intent, NEW_IDEA);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == NEW_IDEA) {
+            if (resultCode == ResultID.SUCCESS)
+                Toast.makeText(this, "SUCCESS", Toast.LENGTH_SHORT).show();
+
+            else {
+                Toast.makeText(this, "Result code: " + resultCode, Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
     /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {

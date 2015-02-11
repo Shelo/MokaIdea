@@ -1,14 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.mokadev.mokaidea.MainActivity">
+    tools:context="com.mokadev.mokaidea.NewIdeaActivity">
 
     <item
-        android:id="@+id/action_done"
-        android:icon="@drawable/ic_note_add_white_48dp"
-        android:title=""
+        android:id="@+id/action_new_entry_accept"
+        android:title="@string/done"
+        android:icon="@drawable/ic_done_white_48dp"
         app:showAsAction="ifRoom"
-        android:onClick="newEntry"
+        android:onClick="done"
         />
 
 </menu>
