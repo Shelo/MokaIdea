@@ -14,8 +14,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class IdeaListFragment extends ListFragment {
-    IdeaAdapter adapter;
-    IdeaSwipeRefresh ideaSwipeRefresh;
+	private IdeaSwipeRefresh ideaSwipeRefresh;
+	private IdeaAdapter adapter;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,11 @@ public class IdeaListFragment extends ListFragment {
         this.ideaSwipeRefresh = ideaSwipeRefresh;
     }
 
-    public class IdeaAdapter extends ArrayAdapter<Idea> {
+	public IdeaSwipeRefresh getIdeaSwipeRefresh() {
+		return ideaSwipeRefresh;
+	}
+
+	public class IdeaAdapter extends ArrayAdapter<Idea> {
         private class ViewHolder {
             TextView title;
             TextView desc;
