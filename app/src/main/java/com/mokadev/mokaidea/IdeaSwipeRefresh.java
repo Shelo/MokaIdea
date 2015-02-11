@@ -47,4 +47,6 @@ public class IdeaSwipeRefresh extends SwipeRefreshLayout implements SwipeRefresh
             }
         }, 5000);
     }
+
+
 }

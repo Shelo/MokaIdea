@@ -53,6 +53,23 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
         // get view pager.
         viewPager = (ViewPager) findViewById(R.id.main_view_pager);
+		viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+			@Override public void onPageScrolled(int i, float v, int i2) { }
+			@Override public void onPageSelected(int i) { }
+
+			@Override
+			public void onPageScrollStateChanged(int state) {
+				switch(state) {
+					case ViewPager.SCROLL_STATE_DRAGGING:
+						fragment.getIdeaSwipeRefresh().setEnabled(false);
+						break;
+
+					case ViewPager.SCROLL_STATE_SETTLING:
+					case ViewPager.SCROLL_STATE_IDLE:
+						fragment.getIdeaSwipeRefresh().setEnabled(true);
+				}
+			}
+		});
         viewPager.setAdapter(new MainViewPagerAdapter(getResources(),
                 getSupportFragmentManager(), fragment, new Fragment()));
     }
