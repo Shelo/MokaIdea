@@ -121,6 +121,8 @@ public class RepoManager extends ArrayList<Repository> {
                                 .title(jidea.getString("title"))
                                 .shortDescription(jidea.getString("short_description"))
                                 .upVoted(false)
+                                .author("Dummy")
+                                .date("february 11, 2014")
                                 .idAuthor(jidea.getInt("id_author"))
                                 .build();
 
