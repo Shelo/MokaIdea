@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,7 +22,6 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     public static final int NEW_IDEA = 0;
 
 	RepoSpinnerAdapter spinnerAdapter;
-	//IdeaSwipeRefresh srlayout;
 	IdeaListFragment fragment;
 	ViewPager viewPager;
 	Toolbar toolbar;
