@@ -26,18 +26,21 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/description_field"
             android:layout_gravity="center_horizontal"
-            android:inputType="text"
+            android:inputType="textMultiLine"
+            android:gravity="top"
             android:hint="@string/description_hint"
-            android:textSize="20sp"
+            android:textColorHint="@color/hint_color"
+            android:textSize="24sp"
             android:padding="16dp"
-            android:background="@null"/>
+            android:background="@null" />
 
     </ScrollView>
 

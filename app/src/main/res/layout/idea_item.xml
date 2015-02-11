@@ -32,7 +32,7 @@
                 android:lines="1"
                 android:textSize="@dimen/idea_item_title_text_size"
                 android:text="@string/dev_idea_item_title"
-                android:id="@+id/idea_item_title" />
+                android:id="@+id/idea_item_title"/>
 
             <TextView
                 android:textSize="@dimen/idea_item_desc_text_size"

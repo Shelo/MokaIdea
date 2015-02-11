@@ -6,11 +6,16 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class NewIdeaActivity extends ActionBarActivity {
     Toolbar toolbar;
     int repoid;
+
+    EditText titleField;
+    EditText descField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,16 +28,10 @@ public class NewIdeaActivity extends ActionBarActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        // Get repoid
-        //repoid = getIntent().getIntExtra("repoid", -1);
-
         repoid = RepoManager.getInstance().getLoadedRepository().id;
 
-        /*if (repoid == -1) {
-            Intent intent = new Intent();
-            setResult(ResultID.MISSING_EXTRAS, intent);
-            finish();
-        }*/
+        titleField = (EditText) findViewById(R.id.title_field);
+        descField = (EditText) findViewById(R.id.description_field);
     }
 
     @Override
@@ -61,7 +60,20 @@ public class NewIdeaActivity extends ActionBarActivity {
     }
 
     public void done(MenuItem item) {
+        String title = titleField.getText().toString().trim();
+        String desc = descField.getText().toString().trim();
+
+        if (title.equals("")) {
+            Toast.makeText(this, "Title must be set!", Toast.LENGTH_SHORT).show();
+            return;
+        } else if (desc.equals("")) {
+            Toast.makeText(this, "Description must be set!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         Intent intent = new Intent();
+        intent.putExtra("title", title);
+        intent.putExtra("desc", desc);
         setResult(ResultID.SUCCESS, intent);
         finish();
     }

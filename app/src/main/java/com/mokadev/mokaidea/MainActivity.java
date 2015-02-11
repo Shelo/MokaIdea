@@ -1,6 +1,7 @@
 package com.mokadev.mokaidea;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
@@ -12,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -56,7 +58,11 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Log.i("onItemSelected(parent, view, " + position + ", id)", "Selected.");
+        TextView textView = (TextView) parent.getChildAt(0);
+
+        if (textView != null)
+            textView.setTextColor(Color.WHITE);
+
         Repository repo = RepoManager.getInstance().get(position);
         RepoManager.getInstance().load(repo.id);
     }
@@ -82,11 +88,9 @@ public class MainActivity extends ActionBarActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == NEW_IDEA) {
-            if (resultCode == ResultID.SUCCESS)
-                Toast.makeText(this, "SUCCESS", Toast.LENGTH_SHORT).show();
-
-            else {
-                Toast.makeText(this, "Result code: " + resultCode, Toast.LENGTH_SHORT).show();
+            if (resultCode == ResultID.SUCCESS) {
+                String title = data.getStringExtra("title");
+                String desc = data.getStringExtra("desc");
             }
         }
     }

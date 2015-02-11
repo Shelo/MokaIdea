@@ -7,6 +7,6 @@
     <color name="hint_color">#808080</color>
     <color name="fragment_idea_title_color">#000000</color>
     <color name="fragment_idea_description_color">#333333</color>
-
-
+    <color name="colorPrimary">#F05050</color>
+    <color name="colorPrimaryDark">#000000</color>
 </resources>
